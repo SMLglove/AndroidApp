@@ -31,6 +31,7 @@
             android:layout_height="200dip"
             android:layout_marginRight="30dip"
             android:layout_gravity="bottom"
+            android:progressDrawable="@drawable/progress"
             />
 
         <android.widget.Finger
@@ -39,6 +40,7 @@
             android:layout_height="250dip"
             android:layout_marginRight="30dip"
             android:layout_gravity="bottom"
+            android:progressDrawable="@drawable/progress"
             />
 
         <android.widget.Finger
@@ -47,6 +49,7 @@
             android:layout_height="200dip"
             android:layout_marginRight="30dip"
             android:layout_gravity="bottom"
+            android:progressDrawable="@drawable/progress"
             />
 
         <android.widget.Finger
@@ -55,6 +58,7 @@
             android:layout_height="150dip"
             android:layout_marginRight="30dip"
             android:layout_gravity="bottom"
+            android:progressDrawable="@drawable/progress"
             />
     </GridLayout>
 </RelativeLayout>

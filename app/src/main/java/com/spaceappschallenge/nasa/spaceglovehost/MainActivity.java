@@ -45,6 +45,12 @@ public class MainActivity extends ActionBarActivity {
         ringFinger    = (Finger)findViewById(R.id.ringFinger);
         pinkyFinger   = (Finger)findViewById(R.id.pinkyFinger);
 
+        thumb.setProgress(thumb.getMax());
+        indexFinger.setProgress(indexFinger.getMax());
+        middleFinger.setProgress(middleFinger.getMax());
+        ringFinger.setProgress(ringFinger.getMax());
+        pinkyFinger.setProgress(pinkyFinger.getMax());
+
         thumb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -153,9 +159,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textView = (TextView)findViewById(R.id.textView);
         initializeFingers();
         if(!initializeBluetooth()) {
-            textView = (TextView)findViewById(R.id.textView);
             textView.setText("Could not initialize Bluetooth!");
             return;
         }

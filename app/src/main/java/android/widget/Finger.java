@@ -41,9 +41,31 @@ public class Finger extends SeekBar {
         super.onDraw(canvas);
     }
 
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(h, w, oldh, oldw);
+    }
+
+    public synchronized void setProgress(int progress) {
+        super.setProgress(progress);
+        onSizeChanged(getWidth(), getHeight(), 0, 0);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return false;
+        if(!isEnabled()) return false;
+
+        switch(event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_UP:
+                setProgress(getMax() - (int)(getMax() * event.getY() / getHeight()));
+                onSizeChanged(getWidth(), getHeight(), 0, 0);
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                break;
+        }
+
+        return true;
     }
 
     public void changeAngle(float delta) {
